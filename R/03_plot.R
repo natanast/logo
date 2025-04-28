@@ -13,8 +13,6 @@ library(data.table)
 library(readxl)
 library(ggstream)
 library(colorspace)
-library(scales)
-library(cowplot)
 
 
 # load data ----------
@@ -22,22 +20,18 @@ library(cowplot)
 df <- readxl::read_xlsx("Data.xlsx") |> setDT()
 
 
-colnames(df)
-
-#plot------
+# plot------
 
 # col = c("#00429d", "#73a2c6", '#396375', '#5a8192', '#6f6e9a', '#a2a0cf', '#e37b78',"#A65628", '#b24745')
 
-
-
 col = c(
-    "A" = "#B28B2D",
+    "A" = "#926f0a",
     "B" = "#979d51",
-    "C" = "#79AF97",
-    "D" = "#748AA6"
+    "C" = "#526E2D",
+    "D" = "#677d99"
 )
 
-df |>
+g = df |>
      
     ggplot(aes(x = Time, y = Number, fill = Type)) +
   
@@ -58,17 +52,18 @@ df |>
     theme(
         plot.background = element_rect(fill = "#e4e4e3"),
         legend.position = "none",
-        panel.grid.major = element_line(linewidth = .35, color = "grey85"),
+        
+        
+        panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         
-        axis.title.y = element_text(margin = margin(r = 10)),
-        axis.title.x = element_text(margin = margin(t = 10)),
+        axis.title = element_blank(),
+        axis.text = element_blank(),
         
         plot.margin = margin(20, 20, 20, 20)
     ) 
       
-# gr
+g
 
-
-
-# ggsave(plot = gr, filename = "04_Rplot.jpeg", width = 8, height = 8, units = "in", dpi = 600)
+# Save the plot with custom size and resolution
+ggsave("logo.png", plot = g, width = 15, height = 10, dpi = 600)
