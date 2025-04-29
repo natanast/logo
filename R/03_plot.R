@@ -18,6 +18,13 @@ library(colorspace)
 # load data ----------
 
 df <- readxl::read_xlsx("Data.xlsx") |> setDT()
+# 
+# df1 <- data.table(
+#     x = c(2002, 2006, 2008),
+#     y = c(2150, 1800, 2300),
+#     size = c(23, 22, 25),  
+#     Type = c("D", "D", "D")
+# )
 
 
 # plot------
@@ -37,12 +44,18 @@ g = df |>
   
     geom_stream(aes(color = Type), type = "ridge", lwd = 0.1, bw = .9) +
     
-    # scale_y_continuous(labels = scales::comma) +
-    
-    # scale_x_continuous(breaks = c(2001, 2023), limits = c(2003, 2023)) +
-    
-    # scale_x_continuous(expand = c(0, 0), breaks = seq(2003, 2023, by = 4), limits = c(2003, 2023)) +
-  
+    # geom_point(
+    #     data = df1,
+    #     aes(x = x, y = y, size = size),
+    #     shape = 21,
+    #     stroke = .2,
+    #     color = "white"
+    # ) +
+
+    scale_size_continuous(range = c(15,30)) +
+
+    # scale_y_continuous(limits = c(0, 3000), breaks = seq(0, 3000, by = 500)) +
+
     scale_color_manual(values = col) +
     scale_fill_manual(values = col) +
 
@@ -56,7 +69,6 @@ g = df |>
         
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
-        
         axis.title = element_blank(),
         axis.text = element_blank(),
         
@@ -65,5 +77,5 @@ g = df |>
       
 g
 
-# Save the plot with custom size and resolution
+# # Save the plot with custom size and resolution
 ggsave("logo.png", plot = g, width = 15, height = 10, dpi = 600)

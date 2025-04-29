@@ -1,4 +1,5 @@
 
+
 rm(list = ls())
 gc()
 
@@ -11,7 +12,7 @@ library(stringr)
 library(data.table)
 library(ggtext)
 library(extrafont)
-library(ggstream)
+# library(ggstream)
 
 # Load data -------
 
