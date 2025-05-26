@@ -42,7 +42,7 @@ g = df |>
      
     ggplot(aes(x = Time, y = Number, fill = Type)) +
   
-    geom_stream(aes(color = Type), type = "ridge", lwd = 0.1, bw = .9) +
+    geom_stream(color = "white", type = "ridge", lwd = 0.5, bw = .9) +
     
     # geom_point(
     #     data = df1,
@@ -56,7 +56,7 @@ g = df |>
 
     # scale_y_continuous(limits = c(0, 3000), breaks = seq(0, 3000, by = 500)) +
 
-    scale_color_manual(values = col) +
+    # scale_color_manual(values = col) +
     scale_fill_manual(values = col) +
 
     
@@ -76,6 +76,10 @@ g = df |>
     ) 
       
 g
+
+
+# install.packages('svglite')
+# library(svglite)
 
 # # Save the plot with custom size and resolution
 ggsave("logo.png", plot = g, width = 15, height = 10, dpi = 600)
