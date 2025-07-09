@@ -32,5 +32,11 @@ library(rsvg)
 library(magick)
 
 # Render SVG at high resolution
-img_svg <- image_read_svg("Odyssey_logo.svg", width = 1000, height = 1000)
+img_svg <- image_read_svg("Odyssey_logo_1.svg", width = 1000, height = 1000)
+
+
+img_clean <- image_transparent(img_svg, color = "white", fuzz = 20)
+
+# Save the cleaned image
+image_write(img_clean, "logo_clean.png")
 
