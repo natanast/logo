@@ -40,3 +40,17 @@ img_clean <- image_transparent(img_svg, color = "white", fuzz = 20)
 # Save the cleaned image
 image_write(img_clean, "logo_clean.png")
 
+
+
+library(magick)
+library(rsvg)  # for rendering SVG
+
+# Read the SVG and convert to high-res raster image
+img <- image_read_svg("Odyssey_logo.svg", width = 2000, height = 2000)  # increase for sharper output
+
+
+img_clean <- image_transparent(img, color = "white", fuzz = 10)
+
+
+image_write(img_clean, path = "logo_highres_nobg.png", format = "png")
+
