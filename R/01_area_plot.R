@@ -17,7 +17,7 @@ library(colorspace)
 
 # load data ----------
 
-df <- readxl::read_xlsx("Data.xlsx") |> setDT()
+df <- readxl::read_xlsx("data/Data.xlsx") |> setDT()
 # 
 # df1 <- data.table(
 #     x = c(2002, 2006, 2008),
@@ -42,7 +42,7 @@ g = df |>
      
     ggplot(aes(x = Time, y = Number, fill = Type)) +
   
-    geom_stream(color = "white", type = "ridge", lwd = 0.5, bw = .9) +
+    geom_stream(color = "#fdfdfc", type = "ridge", lwd = 0.5, bw = .9) +
     
     # geom_point(
     #     data = df1,
@@ -78,8 +78,6 @@ g = df |>
 g
 
 
-# install.packages('svglite')
-# library(svglite)
 
 # # Save the plot with custom size and resolution
 ggsave("logo.png", plot = g, width = 15, height = 10, dpi = 600)
