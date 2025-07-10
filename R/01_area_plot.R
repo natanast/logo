@@ -42,7 +42,7 @@ g = df |>
      
     ggplot(aes(x = Time, y = Number, fill = Type)) +
   
-    geom_stream(color = "#fdfdfc", type = "ridge", lwd = 0.5, bw = .9) +
+    geom_stream(color = "#D5E3F7", type = "ridge", lwd = 0.5, bw = .9) +
     
     # geom_point(
     #     data = df1,
