@@ -10,7 +10,7 @@ gc()
 library(ggplot2)
 library(data.table)
 
-install.packages("magick")
+# install.packages("magick")
 
 
 # load data ----------
